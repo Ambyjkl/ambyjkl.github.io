@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <title>Ambareesh Balaji
+        </title>
+        <link href="styles.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300|Open+Sans" rel="stylesheet">
+        <!--><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> </-->
+    </head>
+    <body>
+        <div class="picture">
+            <img title="Ambareesh Balaji" src="me.png">
+        </div>
+        <div class="info">
+            <h1 id="h1">Hi there!</h1>
+            <p id="p1">I am Ambareesh Balaji and I am a Software Engineering student at the University of Waterloo.</p>
+</div>
+        <script>
+            function changeBackground(){
+                var today = new Date();
+                var s = today.getSeconds() + today.getMilliseconds()/1000;
+                var m = today.getMinutes() + s/60;
+                var h = today.getHours()+ m/60;
+                var r = Math.floor((h < 12) ? (h *256/12) : ((24-h) *256/12));
+                var R = 255 - r;
+                var g = Math.floor((m < 30) ? (m *256/30) : ((60-m) *256/30));
+                var G = 255 - g;
+                var b = Math.floor((s < 30) ? (s *256/30) : ((60-s) *256/30));
+                console.log(b);
+                var B = 255 - b;
+                document.body.style.backgroundColor = `rgb(${r},${g},${b})`;
+                document.getElementById("h1").style.color = `rgb(${R},${G},${B})`;
+                document.getElementById("p1").style.color = `rgb(${R},${G},${B})`;
+            }
+            setInterval(function() {
+                changeBackground();
+            },117);
+        </script>
+    </body>
+</html>
