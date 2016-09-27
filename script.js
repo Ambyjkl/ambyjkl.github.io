@@ -1,3 +1,4 @@
+"use strict";
 function changeBackground(){
     var today = new Date();
     var s = today.getSeconds() + today.getMilliseconds()/1000;
@@ -20,3 +21,23 @@ function changeBackground(){
 setInterval(function() {
     changeBackground();
 },117);
+
+function openInNewTabWinBrowser(url) {
+  var win = window.open(url, '_blank');
+}
+
+$(".fa-github").click(function() {
+    openInNewTabWinBrowser("https://www.github.com/Ambyjkl");
+});
+$(".fa-facebook-square").click(function() {
+    openInNewTabWinBrowser("https://www.facebook.com/ambareesh.balaji");
+});
+$(".fa-linkedin").click(function() {
+    openInNewTabWinBrowser("https://www.linkedin.com/in/ambareesh-b-ba2978129");
+});
+$(".fa-envelope-square").click(function() {
+    openInNewTabWinBrowser("mailto:ambareeshbalaji@gmail.com");
+});
+$(".fa-file-pdf-o").click(function() {
+    openInNewTabWinBrowser("resume.pdf");
+});
