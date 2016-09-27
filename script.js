@@ -15,7 +15,7 @@ function changeBackground() {
     var gg = Math.trunc(Math.pow(g * G, 0.5));
     var bb = Math.trunc(Math.pow(b * B, 0.5));
     $("body").css({
-        'background-image': `linear-gradient(to top,  rgb(${r},${g},${b}) 1%, rgb(${R},${G},${B}) 100%)`
+        'background-image': `linear-gradient(to top,  rgb(${r},${g},${b}) 0%, rgb(${R},${G},${B}) 100%)`
     });
     document.getElementById("me").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
 }
