@@ -5,18 +5,40 @@ html, body {
     background-attachment: fixed;
 }
 
-div.info {
-    background-color: rgba(0, 0, 0, 0.3);
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 5px;
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    border-radius: inherit;
 }
 
-div.info>h1 {
+a:hover {
+    color: #BBBBBB;
+    text-decoration: underline;
+}
+
+i {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    font-style: normal;
+}
+
+h1 {
     font-family: Lato, sans-serif;
     font-size: 50px;
+    font-weight: 300;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 10px;
+}
+
+h2 {
+    font-family: Lato, sans-serif;
+    font-size: 30px;
     font-weight: 300;
     text-align: center;
     color: #FFFFFF;
@@ -31,18 +53,7 @@ p {
     color: #FFFFFF;
 }
 
-a {
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-}
-
-a:HOVER {
-    color: #BBBBBB;
-    text-decoration: underline;
-}
-
-#me {
+/*#me {
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -53,7 +64,7 @@ a:HOVER {
     align-items: center;
     background-color: #FFFFFF;
     border-radius: 100%;
-}
+}*/
 
 .fa {
     color: white
@@ -63,20 +74,51 @@ a:HOVER {
     color: #BBBBBB;
 }
 
+div.info {
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
 div.links {
     background-color: rgba(0, 0, 0, 0.3);
     margin-top: 10px;
+    margin-bottom: 10px;
     padding-top: 0px;
     padding-bottom: 15px;
     text-align: center;
 }
 
-i {
+div.picture {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.picture img {
+    display: block;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 5px;
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    color: #FFFFFF;
-    font-style: normal;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+}
+
+div.flex-container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+div.flex-item {
+    width: 300px;
+    flex-grow: 1;
+    margin-right: 10px;
+    margin-left: 10px;
 }

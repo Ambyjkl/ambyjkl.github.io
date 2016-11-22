@@ -18,6 +18,8 @@ function changeBackground() {
         'background-image': `linear-gradient(to top,  rgb(${r},${g},${b}) 0%, rgb(${R},${G},${B}) 100%)`
     });
     document.getElementById("me").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
+    document.getElementById("HyperSpace").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
+    document.getElementById("ASCIInator").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
 }
 setInterval(function() {
     changeBackground();
