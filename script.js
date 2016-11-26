@@ -39,7 +39,7 @@ $(".fa-twitter").click(function() {
     openInNewTab("https://twitter.com/AmbareeshBalaji");
 });
 $(".fa-linkedin").click(function() {
-    openInNewTab("https://www.linkedin.com/in/ambareesh-b-ba2978129");
+    openInNewTab("https://www.linkedin.com/in/ambyjkl");
 });
 $(".fa-envelope-square").click(function() {
     openInNewTab("mailto:ambareeshbalaji@gmail.com");
