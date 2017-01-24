@@ -6,44 +6,39 @@ function changeBackground() {
     var m = today.getMinutes() + s / 60;
     var h = today.getHours() + m / 60;
     var r = Math.trunc((h < 12) ? (h * 256 / 12) : ((24 - h) * 256 / 12));
-    var R = 255 - r;
     var g = Math.trunc((m < 30) ? (m * 256 / 30) : ((60 - m) * 256 / 30));
-    var G = 255 - g;
     var b = Math.trunc((s < 30) ? (s * 256 / 30) : ((60 - s) * 256 / 30));
-    var B = 255 - b;
-    var rr = Math.trunc(Math.pow(r * R, 0.5));
-    var gg = Math.trunc(Math.pow(g * G, 0.5));
-    var bb = Math.trunc(Math.pow(b * B, 0.5));
-    $("body").css({
-        'background-image': `linear-gradient(to top,  rgb(${r},${g},${b}) 0%, rgb(${R},${G},${B}) 100%)`
-    });
+    var R = g;
+    var G = b;
+    var B = r;
+    var rr = Math.trunc(Math.pow((r * r + R * R)/2, 0.5));
+    var gg = Math.trunc(Math.pow((g * g + G * G)/2, 0.5));
+    var bb = Math.trunc(Math.pow((b * b + B * B)/2, 0.5));
+    document.getElementsByTagName("body")[0].style.backgroundImage= `linear-gradient(to top,  rgb(${r},${g},${b}) 0%, rgb(${R},${G},${B}) 100%)`
     document.getElementById("me").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
     document.getElementById("HyperSpace").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
     document.getElementById("ASCIInator").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
 }
 setInterval(function() {
     changeBackground();
-}, 117);
+}, 117)
 
 function openInNewTab(url) {
-    var win = window.open(url, '_blank');
+    window.open(url, "_blank");
 }
 
-$(".fa-github").click(function() {
+document.getElementsByClassName("fa-github")[0].addEventListener("click",function() {
     openInNewTab("https://www.github.com/Ambyjkl");
-});
-$(".fa-facebook-square").click(function() {
+},false);
+document.getElementsByClassName("fa-facebook-square")[0].addEventListener("click",function() {
     openInNewTab("https://www.facebook.com/ambareesh.balaji");
-});
-$(".fa-twitter").click(function() {
+},false);
+document.getElementsByClassName("fa-twitter")[0].addEventListener("click",function() {
     openInNewTab("https://twitter.com/AmbareeshBalaji");
-});
-$(".fa-linkedin").click(function() {
+},false);
+document.getElementsByClassName("fa-linkedin")[0].addEventListener("click",function() {
     openInNewTab("https://www.linkedin.com/in/ambyjkl");
-});
-$(".fa-envelope-square").click(function() {
+},false);
+document.getElementsByClassName("fa-envelope-square")[0].addEventListener("click",function() {
     openInNewTab("mailto:ambareeshbalaji@gmail.com");
-});
-$(".fa-file-pdf-o").click(function() {
-    openInNewTab("resume.pdf");
-});
+},false);
