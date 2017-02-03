@@ -22,23 +22,3 @@ function changeBackground() {
 setInterval(function() {
     changeBackground();
 }, 117)
-
-function openInNewTab(url) {
-    window.open(url, "_blank");
-}
-
-document.getElementsByClassName("fa-github")[0].addEventListener("click",function() {
-    openInNewTab("https://www.github.com/Ambyjkl");
-},false);
-document.getElementsByClassName("fa-facebook-square")[0].addEventListener("click",function() {
-    openInNewTab("https://www.facebook.com/ambareesh.balaji");
-},false);
-document.getElementsByClassName("fa-twitter")[0].addEventListener("click",function() {
-    openInNewTab("https://twitter.com/AmbareeshBalaji");
-},false);
-document.getElementsByClassName("fa-linkedin")[0].addEventListener("click",function() {
-    openInNewTab("https://www.linkedin.com/in/ambyjkl");
-},false);
-document.getElementsByClassName("fa-envelope-square")[0].addEventListener("click",function() {
-    openInNewTab("mailto:ambareeshbalaji@gmail.com");
-},false);

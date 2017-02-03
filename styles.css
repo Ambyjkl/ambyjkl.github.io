@@ -7,7 +7,6 @@ a {
 
 a:hover {
     color: #BBBBBB;
-    text-decoration: underline;
 }
 
 body {
@@ -34,7 +33,7 @@ h2 {
     margin: 10px;
 }
 
-i {
+span {
     padding-right: 5px;
     padding-left: 5px;
     font-style: normal;
@@ -99,4 +98,15 @@ p {
     align-items: center;
     background-color: #FFFFFF;
     border-radius: 100%;
+}
+
+.devpost {
+    height: 1.4em;
+    width: auto;
+    margin: -0.15em;
+    filter: invert(100%);
+}
+
+.devpost:HOVER {
+    filter: invert(73.333%);
 }
