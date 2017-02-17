@@ -101,10 +101,13 @@ p {
 }
 
 .devpost {
-    height: 1.4em;
-    width: auto;
+    width: 33.5px;
     margin: -0.15em;
     filter: invert(100%);
+    height: 1.4em;
+    background: url(devpost.svg) no-repeat;
+    display: inline-block;
+    background-position: center;
 }
 
 .devpost:HOVER {
