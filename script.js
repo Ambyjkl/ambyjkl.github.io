@@ -1,13 +1,20 @@
 "use strict";
-
+var partyMode = false;
 function changeBackground() {
-    var today = new Date();
-    var s = today.getSeconds() + today.getMilliseconds() / 1000;
-    var m = today.getMinutes() + s / 60;
-    var h = today.getHours() + m / 60;
-    var r = Math.trunc((h < 12) ? (h * 256 / 12) : ((24 - h) * 256 / 12));
-    var g = Math.trunc((m < 30) ? (m * 256 / 30) : ((60 - m) * 256 / 30));
-    var b = Math.trunc((s < 30) ? (s * 256 / 30) : ((60 - s) * 256 / 30));
+    var r,g,b;
+    if (partyMode) {
+        r = Math.floor(Math.random() *256);
+        g = Math.floor(Math.random() *256);
+        b = Math.floor(Math.random() *256);
+    } else {
+        var today = new Date();
+        var s = today.getSeconds() + today.getMilliseconds() / 1000;
+        var m = today.getMinutes() + s / 60;
+        var h = today.getHours() + m / 60;
+        r = Math.trunc((h < 12) ? (h * 256 / 12) : ((24 - h) * 256 / 12));
+        g = Math.trunc((m < 30) ? (m * 256 / 30) : ((60 - m) * 256 / 30));
+        b = Math.trunc((s < 30) ? (s * 256 / 30) : ((60 - s) * 256 / 30));
+    }
     var R = g;
     var G = b;
     var B = r;
@@ -21,4 +28,13 @@ function changeBackground() {
 }
 setInterval(function() {
     changeBackground();
-}, 117)
+}, 117);
+document.getElementById("party").style.display="none";
+document.getElementById("me").onclick = () => {
+    partyMode = ! partyMode;
+    if (partyMode) {
+        document.getElementById("party").style.display="initial";
+    } else {
+        document.getElementById("party").style.display="none";
+    }
+}
