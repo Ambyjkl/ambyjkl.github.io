@@ -1,5 +1,6 @@
 "use strict";
 var partyMode = false;
+var interval = 117;
 function changeBackground() {
     var r,g,b;
     if (partyMode) {
@@ -28,13 +29,15 @@ function changeBackground() {
 }
 setInterval(function() {
     changeBackground();
-}, 117);
+}, interval);
 document.getElementById("party").style.display="none";
 document.getElementById("me").onclick = () => {
     partyMode = ! partyMode;
     if (partyMode) {
         document.getElementById("party").style.display="initial";
+        interval = 16.6667;
     } else {
         document.getElementById("party").style.display="none";
+        interval = 117;
     }
 }
