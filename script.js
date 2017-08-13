@@ -34,7 +34,6 @@
     var bb = ~~Math.sqrt((b * b + B * B) / 2);
 
     body.style.backgroundImage = 'linear-gradient(rgb(' + R + ',' + G + ',' + B + '),' + 'rgb(' + r + ',' + g + ',' + b + '))';
-    body.style.filter = 'progid:DXImageTransform.Microsoft.Gradient(startColorstr="rgb(' + R + ',' + G + ',' + B + ')", endColorstr="rgb(' + r + ',' + g + ',' + b + ')")';
     me.style.background = 'rgb(' + rr + ',' + gg + ',' + bb + ')';
     HyperSpace.style.background = 'rgb(' + rr + ',' + gg + ',' + bb + ')';
     ASCIInator.style.background = 'rgb(' + rr + ',' + gg + ',' + bb + ')';
