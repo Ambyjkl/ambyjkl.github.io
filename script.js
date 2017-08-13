@@ -1,43 +1,64 @@
-"use strict";
-var partyMode = false;
-var interval = 117;
-function changeBackground() {
-    var r,g,b;
+'use strict';
+
+(function () {
+  var partyMode = false;
+  var intervalDuration = 117;
+  var animationFrame;
+
+  var body = document.body;
+  var me = document.getElementById('me')
+  var HyperSpace = document.getElementById('HyperSpace');
+  var ASCIInator = document.getElementById('ASCIInator');
+
+  function changeBackground() {
+    var r, g, b;
     if (partyMode) {
-        r = Math.floor(Math.random() *256);
-        g = Math.floor(Math.random() *256);
-        b = Math.floor(Math.random() *256);
+      r = ~~(Math.random() * 256);
+      g = ~~(Math.random() * 256);
+      b = ~~(Math.random() * 256);
     } else {
-        var today = new Date();
-        var s = today.getSeconds() + today.getMilliseconds() / 1000;
-        var m = today.getMinutes() + s / 60;
-        var h = today.getHours() + m / 60;
-        r = Math.trunc((h < 12) ? (h * 256 / 12) : ((24 - h) * 256 / 12));
-        g = Math.trunc((m < 30) ? (m * 256 / 30) : ((60 - m) * 256 / 30));
-        b = Math.trunc((s < 30) ? (s * 256 / 30) : ((60 - s) * 256 / 30));
+      var today = new Date();
+      var s = today.getSeconds() + today.getMilliseconds() / 1000;
+      var m = today.getMinutes() + s / 60;
+      var h = today.getHours() + m / 60;
+      r = ~~(h < 12 ? h * 256 / 12 : (24 - h) * 256 / 12);
+      g = ~~(m < 30 ? m * 256 / 30 : (60 - m) * 256 / 30);
+      b = ~~(s < 30 ? s * 256 / 30 : (60 - s) * 256 / 30);
     }
+
     var R = g;
     var G = b;
     var B = r;
-    var rr = Math.trunc(Math.pow((r * r + R * R)/2, 0.5));
-    var gg = Math.trunc(Math.pow((g * g + G * G)/2, 0.5));
-    var bb = Math.trunc(Math.pow((b * b + B * B)/2, 0.5));
-    document.getElementsByTagName("body")[0].style.backgroundImage= `linear-gradient(to top,  rgb(${r},${g},${b}) 0%, rgb(${R},${G},${B}) 100%)`
-    document.getElementById("me").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
-    document.getElementById("HyperSpace").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
-    document.getElementById("ASCIInator").style.backgroundColor = `rgb(${rr},${gg},${bb})`;
-}
-setInterval(function() {
-    changeBackground();
-}, interval);
-document.getElementById("party").style.display="none";
-document.getElementById("me").onclick = () => {
-    partyMode = ! partyMode;
+    var rr = ~~Math.sqrt((r * r + R * R) / 2);
+    var gg = ~~Math.sqrt((g * g + G * G) / 2);
+    var bb = ~~Math.sqrt((b * b + B * B) / 2);
+
+    body.style.backgroundImage = 'linear-gradient(rgb(' + R + ',' + G + ',' + B + '),' + 'rgb(' + r + ',' + g + ',' + b + '))';
+    body.style.filter = 'progid:DXImageTransform.Microsoft.Gradient(startColorstr="rgb(' + R + ',' + G + ',' + B + ')", endColorstr="rgb(' + r + ',' + g + ',' + b + ')")';
+    me.style.background = 'rgb(' + rr + ',' + gg + ',' + bb + ')';
+    HyperSpace.style.background = 'rgb(' + rr + ',' + gg + ',' + bb + ')';
+    ASCIInator.style.background = 'rgb(' + rr + ',' + gg + ',' + bb + ')';
+
     if (partyMode) {
-        document.getElementById("party").style.display="initial";
-        interval = 16.6667;
-    } else {
-        document.getElementById("party").style.display="none";
-        interval = 117;
+      animationFrame = requestAnimationFrame(changeBackground);
     }
-}
+  }
+
+  var interval = setInterval(changeBackground, intervalDuration);
+
+  var party = document.getElementById('party');
+  party.style.visibility = 'hidden';
+
+  me.onclick = function () {
+    partyMode = !partyMode;
+    if (partyMode) {
+      party.style.visibility = null;
+      clearInterval(interval);
+      animationFrame = requestAnimationFrame(changeBackground);
+    } else {
+      party.style.visibility = 'hidden';
+      cancelAnimationFrame(animationFrame);
+      interval = setInterval(changeBackground, intervalDuration);
+    }
+  };
+})();
