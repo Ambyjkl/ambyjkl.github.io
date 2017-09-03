@@ -1,11 +1,65 @@
+/* Resume specific */
+.letter {margin: auto;width: 8.5in;height: 11in;padding: 0.35in;box-sizing: border-box;overflow: hidden;line-height: 1.45;background: white;}.letter a {text-decoration: none;color: black;}.letter .desc {margin-left: 5pt;border-left: 1px solid black;padding-left: 5pt;}.letter .devpost {background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280.3 242"><path d="M133.7 76H118v90h14.7c31 0 45-18 45-45 0-30-12.8-45-44-45z"/><path d="M210.2 0h-140L0 121l70 121h140.2l70-121-70-121zm-77.5 195H89V47h45.8c42 0 73.3 20 73.3 74 0 51.8-37.4 74-75.3 74z"/></svg>');background-size: contain;background-repeat: no-repeat;height: 12pt;width: 12pt;margin-left: 2pt;}.letter p, .letter ul {margin: 0;}.letter ul {padding-left: 16pt;}.letter p, .letter li {font-weight: normal;font-style: normal;font-size: 12pt;text-align: justify;color: black;}
+/* Resume atomic */
+.text-center {text-align: center;}.flex-center {display: flex;align-items: center;}.dib {display: inline-block;}.ml10pt {margin-left: 10pt;}.mr3pt {margin-right: 3pt;}.mb1 {margin-bottom: 10pt;}.mb2 {margin-bottom: 7pt;}.mb3 {margin-bottom: 5pt;}.fw3 {font-weight: 300;}.fw5 {font-weight: 500;}.between {display: flex;justify-content: space-between;}.gg-underline {display: inline-block;border-bottom: 1px solid black;}.italic {font-style: italic;}.f1 {font-size: 27pt;}.f2 {font-size: 18pt;}.f3 {font-size: 14pt;}.f1, .f2, .f3 {line-height: 1.225;}
+/* Resume fonts */
+.cmu-serif, .letter p, .letter li {font-family: 'CMU Serif', serif;}@font-face {font-family: 'CMU Serif';src: url("./cmunrm-webfont.woff") format("woff");font-weight: normal;font-style: normal;}.fira, .desc, .f1, .f2, .f3 {font-family: 'Fira Sans', sans-serif;}@font-face {font-family: 'Fira Sans';src: local("Fira Sans Light"), url("https://code.cdn.mozilla.net/fonts/woff/FiraSans-Light.woff") format("woff");font-weight: 300;font-style: normal;}@font-face {font-family: 'Fira Sans';src: local("Fira Sans Regular"), url("https://code.cdn.mozilla.net/fonts/woff/FiraSans-Regular.woff") format("woff");font-weight: 400;font-style: normal;}@font-face {font-family: 'Fira Sans';src: local("Fira Sans Medium"), url("https://code.cdn.mozilla.net/fonts/woff/FiraSans-Medium.woff") format("woff");font-weight: 500;font-style: normal;}@font-face {font-family: 'Fira Sans';src: local("Fira Sans Medium Italic"), url("https://code.cdn.mozilla.net/fonts/woff/FiraSans-MediumItalic.woff") format("woff");font-weight: 500;font-style: italic;}
+
 a {
-  color: white;
-  font-weight: bold;
   text-decoration: none;
 }
 
-a:hover {
-  color: #BBBBBB;
+.mt-center {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+}
+
+.resume-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  user-select: none;
+  -moz-user-select: none;
+  cursor: pointer;
+}
+
+.mw500 {
+  max-width: 500px;
+  margin: auto;
+}
+
+#party {
+  visibility: hidden;
+}
+
+#resume {
+  display: none;
+}
+
+.resume-button:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.mpv1 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.mpv1, .mv1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mx05 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.inline-flex {
+  display: inline-flex;
 }
 
 body {
@@ -14,45 +68,23 @@ body {
   margin: 0;
 }
 
-h1 {
-  font-family: Lato, sans-serif;
-  font-size: 50px;
-  font-weight: 300;
-  text-align: center;
-  color: #FFFFFF;
-  margin: 10px;
+* {
+  box-sizing: border-box;
 }
 
-h2 {
-  font-family: Lato, sans-serif;
-  font-size: 30px;
-  font-weight: 300;
-  text-align: center;
-  color: #FFFFFF;
-  margin: 10px;
+.f125rem {
+  font-size: 1.25rem;
 }
 
-span {
-  padding-right: 5px;
-  padding-left: 5px;
-  font-style: normal;
-  color: white;
-  font-size: 20px;
-  font-family: "Open Sans", sans-serif;
-}
-
-p {
-  font-family: "Open Sans", sans-serif;
-  font-size: 20px;
-  text-align: center;
-  color: #FFFFFF;
-}
-
-.fa {
+.white {
   color: white;
 }
 
-.fa:hover {
+.dim {
+  color: white;
+}
+
+.dim:hover {
   color: #BBBBBB;
 }
 
@@ -77,23 +109,13 @@ p {
 }
 
 .flex-item {
-  width: 300px;
-  flex-grow: 1;
+  flex: 1 1 300px;
   margin-right: 10px;
   margin-left: 10px;
 }
 
-.info, .footer {
+.dark {
   background-color: rgba(0, 0, 0, 0.3);
-  margin-top: 15px;
-  padding: 5px;
-}
-
-.links {
-  background-color: rgba(0, 0, 0, 0.3);
-  margin-top: 15px;
-  padding: 15px;
-  text-align: center;
 }
 
 .picture {
@@ -103,12 +125,11 @@ p {
   margin-right: auto;
 }
 
-.picture img {
+.picture {
   display: block;
   width: 200px;
   object-fit: cover;
   height: 200px;
-  align-items: center;
   background-color: #FFFFFF;
-  border-radius: 100%;
+  border-radius: 50%;
 }

@@ -9,6 +9,20 @@
   var me = document.getElementById('me')
   var HyperSpace = document.getElementById('HyperSpace');
   var ASCIInator = document.getElementById('ASCIInator');
+  var showResume = document.getElementById('show-resume');
+  var resume = document.getElementById('resume');
+  var resumeHidden = true;
+
+  showResume.onclick = function () {
+    resumeHidden = !resumeHidden;
+    if (resumeHidden) {
+      resume.style.display = null;
+      showResume.innerText = 'Show Resume';
+    } else {
+      resume.style.display = 'block';
+      showResume.innerText = 'Hide Resume';
+    }
+  }
 
   function changeBackground() {
     var r, g, b;
@@ -46,16 +60,15 @@
   var interval = setInterval(changeBackground, intervalDuration);
 
   var party = document.getElementById('party');
-  party.style.visibility = 'hidden';
 
   me.onclick = function () {
     partyMode = !partyMode;
     if (partyMode) {
-      party.style.visibility = null;
+      party.style.visibility = 'visible';
       clearInterval(interval);
       animationFrame = requestAnimationFrame(changeBackground);
     } else {
-      party.style.visibility = 'hidden';
+      party.style.visibility = null;
       cancelAnimationFrame(animationFrame);
       interval = setInterval(changeBackground, intervalDuration);
     }
